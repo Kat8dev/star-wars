@@ -14,3 +14,17 @@ code {
 }
 
 
+.App {
+  display: flex;
+  justify-content: space-between;
+}
+
+.APP_NAV {
+  display: flex;
+}
+
+
+.APP_LINKS {
+  margin: 10px;
+}
+
