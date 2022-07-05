@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { SHIPS_WRAPPER, SHIP_BOX } from "../styled"
+import { SHIPS_WRAPPER } from "../styled"
 import InfiniteScroll from "react-infinite-scroll-component";
+import ShipItem from "../components/ShipItem";
 
 const ShipList = () => {
  
@@ -27,10 +28,10 @@ const ShipList = () => {
           next={() => setPage((prev) => prev + 1)}
         >
           {ships.map(item=> {
-            return <SHIP_BOX key={item.model}>
-              <p>{item.name}</p>
-              <p>{item.model}</p>
-            </SHIP_BOX>
+            return <ShipItem
+                      name={item.name}
+                      model={item.model}
+                   />   
           })}
         </InfiniteScroll>
       </SHIPS_WRAPPER>

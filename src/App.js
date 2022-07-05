@@ -9,7 +9,7 @@ const App = () => {
           borderBottom: "solid 1px",
           paddingBottom: "1rem",
         }}>
-        <Link className="APP_LINKS" to="/Welcome">Welcome</Link>
+        <Link className="APP_LINKS" to="/">Welcome</Link>
         <Link className="APP_LINKS" to="/ShipList">Ship List</Link>
       </nav>
       <Outlet />
