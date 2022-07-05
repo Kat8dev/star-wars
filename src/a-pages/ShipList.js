@@ -19,8 +19,7 @@ const ShipList = () => {
  
 
   return (
-    <div className="App">
-      <SHIPS_WRAPPER>
+   <SHIPS_WRAPPER>
         <h2>Star Ships</h2>
         <InfiniteScroll
           dataLength={ships.length}
@@ -35,7 +34,6 @@ const ShipList = () => {
           })}
         </InfiniteScroll>
       </SHIPS_WRAPPER>
-    </div>
   );
 }
 

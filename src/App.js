@@ -3,10 +3,13 @@ import { Outlet, Link } from "react-router-dom";
 const App = () => {
 
   return (
-    <div className="App">
+    <div>
       <h1>StarWars</h1>
-      <nav className="APP_NAV">
-        <Link className="APP_LINKS" to="/">Welcome</Link>
+      <nav  style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}>
+        <Link className="APP_LINKS" to="/Welcome">Welcome</Link>
         <Link className="APP_LINKS" to="/ShipList">Ship List</Link>
       </nav>
       <Outlet />

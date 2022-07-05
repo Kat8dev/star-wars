@@ -12,12 +12,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <App/>
-    <Routes>
-      <Route path='/' element={<Welcome />} />
-      <Route path='ShipList' element={<ShipList />} />
-      <Route path='*' element={<ErrorPage />} />
-    </Routes>
+      <Routes>
+        <Route path='/' element={<App />}>
+          <Route path='/Welcome' element={<Welcome />} />
+          <Route path='/ShipList' element={<ShipList />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
@@ -26,4 +27,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
- 
