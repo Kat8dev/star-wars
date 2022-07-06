@@ -1,4 +1,22 @@
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 export default function ShipInfo() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios
+        .get(`https://swapi.dev/api/starships/?page=${data}`)
+        .then((res) => {
+          setData((prev) => prev.concat(res.data.results))
+        })
+    }, [data])
+
+    let numberPattern = /\d+/g;
+
+    let params = useParams();
+
     return(
         <div>
             <h4>name: </h4>

@@ -17,7 +17,7 @@ const ShipList = () => {
         setShips((prev) => prev.concat(res.data.results))
       })
   }, [page])
- 
+
 
   return (
    <SHIPS_WRAPPER>
