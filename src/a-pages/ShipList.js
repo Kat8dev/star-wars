@@ -10,13 +10,13 @@ const ShipList = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    axios
+      axios
       .get(`https://swapi.dev/api/starships/?page=${page}`)
       .then((res) => {
         console.log(res)
         setShips((prev) => prev.concat(res.data.results))
       })
-  }, [page])
+    }, [page])
 
   return (
    <SHIPS_WRAPPER>
@@ -36,8 +36,8 @@ const ShipList = () => {
         </InfiniteScroll>
       </SHIPS_WRAPPER>
   );
-}
 
+}
 export default ShipList;
 
 export const GetUrlId = (url) => {

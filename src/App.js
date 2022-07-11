@@ -1,19 +1,23 @@
-import { Outlet, Link } from "react-router-dom";
+
+import { Routes, Route } from "react-router-dom";
+import ShipList from './a-pages/ShipList';
+import ShipInfo from './components/ShipInfo';
+import Welcome from './a-pages/Welcome'
+import ErrorPage from './components/ErrorPage';
+import NavBar from "./components/NavBar";
 
 const App = () => {
 
   return (
-    <div>
-      <h1>StarWars</h1>
-      <nav  style={{
-          borderBottom: "solid 1px",
-          paddingBottom: "1rem",
-        }}>
-        <Link className="APP_LINKS" to="/">Welcome</Link>
-        <Link className="APP_LINKS" to="/ShipList">Ship List</Link>
-      </nav>
-      <Outlet />
-    </div>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<Welcome />} />
+        <Route path='/ShipList' element={<ShipList />} />
+        <Route path='/shipinfo/:id' element={<ShipInfo />} />
+        <Route path='*' element={<ErrorPage />} />
+      </Routes>
+    </>
   );
 }
 
