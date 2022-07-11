@@ -17,7 +17,7 @@ root.render(
       <Routes>
           <Route path='/' element={<Welcome />} />
           <Route path='/ShipList' element={<ShipList />} />
-          <Route path=':shipinfo' element={<ShipInfo />} />
+          <Route path='/shipinfo/:id' element={<ShipInfo />} />
           <Route path='*' element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

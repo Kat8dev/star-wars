@@ -18,7 +18,6 @@ const ShipList = () => {
       })
   }, [page])
 
-
   return (
    <SHIPS_WRAPPER>
         <h2>Star Ships</h2>
@@ -29,6 +28,7 @@ const ShipList = () => {
         >
           {ships.map(item=> {
             return <ShipItem
+                      id={GetUrlId(item.url)}
                       name={item.name}
                       model={item.model}
                    />   
@@ -39,6 +39,11 @@ const ShipList = () => {
 }
 
 export default ShipList;
+
+export const GetUrlId = (url) => {
+  let urlId = url.match(/\d+/g);
+  return urlId[0];
+}
 
 /*
 import { useEffect, useState }  from "react";
