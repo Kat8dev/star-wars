@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 import ShipList from './a-pages/ShipList';
 import ShipInfo from './components/ShipInfo';
