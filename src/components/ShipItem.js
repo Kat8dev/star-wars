@@ -5,8 +5,8 @@ export default function ShipItem(props) {
     return (
         <Link to={"/shipinfo/" + props.id} style={{ color: "#aaa", textDecoration: "none" }}>
             <SHIP_BOX key={props.model}>
-                <h3><b>Name:</b> {props.name}</h3>
-                <h3><b>Model:</b> {props.model}</h3>
+                <h3>{props.name}</h3>
+                <p>{props.model}</p>
             </SHIP_BOX>
         </Link>
     )

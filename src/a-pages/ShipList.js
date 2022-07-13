@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import ShipItem from "../components/ShipItem";
+import ClipLoader  from "react-spinners/ClipLoader";
 
 const ShipList = () => {
 
@@ -12,7 +13,6 @@ const ShipList = () => {
     axios
       .get(`https://swapi.dev/api/starships/?page=${page}`)
       .then((res) => {
-        console.log(res)
         setShips((prev) => prev.concat(res.data.results))
       })
   }, [page])
@@ -35,7 +35,9 @@ const ShipList = () => {
             })}
           </InfiniteScroll>
         </div>)
-        : 'Loading'}
+        : <ClipLoader  color={"#aaa"}
+             cssOverride={override} 
+             size={150} />}
 
     </>
   );
@@ -43,51 +45,15 @@ const ShipList = () => {
 }
 export default ShipList;
 
-export const GetUrlId = (url) => {
+const GetUrlId = (url) => {
   let urlId = url.match(/\d+/g);
   return urlId[0];
 }
 
-/*
-import { useEffect, useState }  from "react";
-import axios from "axios"; 
-import { SHIPS_WRAPPER, SHIP_BOX} from "./styled"
+const override = {
+  display: "block",
+  margin: "300px auto",
+  borderColor: "#aaa",
+}; 
 
 
-const App = (_) => {
-  const styles = {
-    height: "100vh",
-    backgroundSize: "cover",
-    backgroundImage: 'url(images/background3.PNG)',
-    textAlign: "center",
-    padding: "10px"
-  }
-
-  const [ships, setShips] = useState([]);
-
-  useEffect(() => {
-    axios
-     .get(`https://swapi.dev/api/starships/?page=1`)
-     .then((res) => {
-      console.log(res)
-      setShips(res.data.results)
-    })
-  }, [])
-
-  return (
-    <div style={styles}className="App">
-      <SHIPS_WRAPPER>
-        <h1>Star Ships</h1>
-      {ships.map(item => {
-        return <SHIP_BOX key={item.model}>
-          <p>{item.name}</p>
-          <p>{item.model}</p>
-        </SHIP_BOX>
-      })}
-      </SHIPS_WRAPPER>
-    </div>
-  );
-}
-
-export default App;
- */
