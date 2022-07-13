@@ -1,40 +1,43 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { SHIPS_WRAPPER } from "../styled"
 import InfiniteScroll from "react-infinite-scroll-component";
 import ShipItem from "../components/ShipItem";
 
 const ShipList = () => {
- 
+
   const [ships, setShips] = useState([]);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-      axios
+    axios
       .get(`https://swapi.dev/api/starships/?page=${page}`)
       .then((res) => {
         console.log(res)
         setShips((prev) => prev.concat(res.data.results))
       })
-    }, [page])
+  }, [page])
 
   return (
-   <SHIPS_WRAPPER>
-        <h2>Star Ships</h2>
-        <InfiniteScroll
-          dataLength={ships.length}
-          hasMore={true}
-          next={() => setPage((prev) => prev + 1)}
-        >
-          {ships.map(item=> {
-            return <ShipItem
-                      id={GetUrlId(item.url)}
-                      name={item.name}
-                      model={item.model}
-                   />   
-          })}
-        </InfiniteScroll>
-      </SHIPS_WRAPPER>
+    <>
+      {ships.length > 0 ?
+        (<div>
+          <InfiniteScroll
+            dataLength={ships.length}
+            hasMore={true}
+            next={() => setPage((prev) => prev + 1)}
+          >
+            {ships.map(item => {
+              return <ShipItem
+                id={GetUrlId(item.url)}
+                name={item.name}
+                model={item.model}
+              />
+            })}
+          </InfiniteScroll>
+        </div>)
+        : 'Loading'}
+
+    </>
   );
 
 }

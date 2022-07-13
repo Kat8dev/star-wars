@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import NavBarExternalLinks from "./NavBarExternalLinks";
+import LogIn from "./LogIn";
 
 const NavBar = () => {
     return (
@@ -8,7 +9,7 @@ const NavBar = () => {
             <UPPER_BAR_WRAPPER>
                 <NavBarExternalLinks/>
                 <LOGO />
-               
+                <LogIn/>
             </UPPER_BAR_WRAPPER>
             <LINK_BAR>
                 <NavLink to="/"
@@ -69,6 +70,7 @@ export const activeStyle = {
     color: "white",
     fontSize: 20,
     textDecoration: "none",
+    borderBottom: "solid #4169E1 2px",
 }
 
 export const nonActiveStyle = {
