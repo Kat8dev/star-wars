@@ -3,7 +3,9 @@ import styled from "styled-components";
 import NavBarExternalLinks from "./NavBarExternalLinks";
 import LogIn from "./LogIn";
 
+
 const NavBar = () => {
+
     return (
         <NAV_CONTAINER>
             <UPPER_BAR_WRAPPER>
@@ -52,14 +54,13 @@ export const UPPER_BAR_WRAPPER = styled.div`
                 margin: 0 auto;
                 padding: 20px 0;
                 box-sizing: border-box;
-
+                display: flex;
+                justify-content: center;
                 `
 
 export const LOGO = styled.div`
-                width: 100%;
-                max-width: 203px;
+                width: 400px;
                 height: 6rem;
-                margin: -50px auto 0;
                 background-image: url(https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_stacked-336c62367939.png);
                 background-size: contain;
                 background-repeat: no-repeat;

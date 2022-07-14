@@ -34,6 +34,7 @@ const NavBarExternalLinks = () => {
 export default NavBarExternalLinks;
 
 export const EXTERNAL_LINKS = styled.div`
+                flex: 0 1 auto;
                 width: 400px;
                 display: flex;
                 justify-content: center; 
@@ -54,13 +55,14 @@ export const KIDS_DIV = styled.div`
 `
 
 export const STYLED_UL = styled.ul`
+    height: fit-content;
     display: flex;
     border-right: solid 1px #343434;
     a{
         margin: 0 10px;
         span{
             color: #aaa;
-            font-size: 1.5rem;
+            font-size: 1.5rem;      
         }
     }
 `
