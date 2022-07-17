@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { INFO_DIV } from "../styled";
+import { INFO_DIV } from "../styled/styled";
 
 export default function ShipInfo() {
     let { id } = useParams();

@@ -1,4 +1,4 @@
-import { SHIP_BOX } from "../styled";
+import { SHIP_BOX } from "../styled/styled";
 import { Link } from "react-router-dom";
 
 export default function ShipItem(props) {
