@@ -23,7 +23,7 @@ const SignupModal = ({ open, onClose }) => {
 
     useEffect(() => {
         localStorage.setItem("user", JSON.stringify(user));
-    })
+    }, [user])
 
     const HandleOnSubmit = (event) => {
         event.preventDefault();

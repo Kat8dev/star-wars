@@ -1,6 +1,5 @@
 import { OVERLAY_STYLES } from "../styled/styled";
-import { useContext, useState } from "react";
-import { UserContext } from "./UserContext";
+import { useState } from "react";
 
 const LoginModal = ({ open, onClose }) => {
     const [ user, setUser ] = useState({
@@ -17,7 +16,6 @@ const LoginModal = ({ open, onClose }) => {
         })
     }
 
-    const {loged, setLoged } = useContext(UserContext);
 
     const HandleOnSubmit = () => {
        
@@ -26,8 +24,7 @@ const LoginModal = ({ open, onClose }) => {
 
         const found = parsedUser.find(item => item.email === user.email);
 
-        if(found !== undefined && found.password === user.password) {         
-            setLoged(true); 
+        if(found !== undefined && found.password === user.password) {          
             alert(`Welcome ${found.firstName}!`)
         }else {
             alert("please sign up!")

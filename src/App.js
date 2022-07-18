@@ -4,11 +4,12 @@ import ShipInfo from './components/ShipInfo';
 import Welcome from './a-pages/Welcome'
 import ErrorPage from './components/ErrorPage';
 import NavBar from "./components/NavBar";
+import { UserContext } from "./components/UserContext";
 
 const App = () => {
 
   return (
-    <>
+    <UserContext.Provider >
       <NavBar />
       <Routes>
         <Route path='/' element={<Welcome />} />
@@ -16,7 +17,7 @@ const App = () => {
         <Route path='/shipinfo/:id' element={<ShipInfo />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
-    </>
+    </UserContext.Provider>
   );
 }
 

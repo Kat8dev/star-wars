@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-// exported to components/ShipItem }
+// exported to components/ShipItem 
 export const SHIP_BOX = styled.div` 
     width: 700px;
     margin: 20px auto;
@@ -28,7 +28,7 @@ export const INFO_DIV = styled.div`
 // Modal styles 
 export const OVERLAY_STYLES = styled.div`
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 0px;
     right: 0px;
     bottom: 0px;
