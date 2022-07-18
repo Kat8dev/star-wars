@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import ShipItem from "../components/ShipItem";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import { UserContext } from "../components/UserContext";
 
 const ShipList = () => {
 	const [ships, setShips] = useState([]);
 	const [page, setPage] = useState(1);
+  const { loged } = useContext(UserContext);
 
 	useEffect(() => {
 		axios.get(`https://swapi.dev/api/starships/?page=${page}`).then((res) => {
@@ -15,9 +16,10 @@ const ShipList = () => {
 		});
 	}, [page]);
 
+
 	return (
 		<>
-			{ships.length > 0 ? (
+    { ships.length > 0 ? (
 				<div>
 					<InfiniteScroll
 						dataLength={ships.length}

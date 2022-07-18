@@ -5,11 +5,14 @@ import Welcome from './a-pages/Welcome'
 import ErrorPage from './components/ErrorPage';
 import NavBar from "./components/NavBar";
 import { UserContext } from "./components/UserContext";
+import { useState } from "react";
 
 const App = () => {
+   
+  const [loged, setLoged] = useState(false);
 
   return (
-    <UserContext.Provider >
+    <UserContext.Provider value={{loged, setLoged}}>
       <NavBar />
       <Routes>
         <Route path='/' element={<Welcome />} />
