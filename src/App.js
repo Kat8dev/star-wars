@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import ShipList from './a-pages/ShipList';
 import ShipInfo from './components/ShipInfo';
 import Welcome from './a-pages/Welcome'
 import ErrorPage from './components/ErrorPage';
 import NavBar from "./components/NavBar";
 import { UserContext } from "./components/UserContext";
 import { useState } from "react";
+import PrivateRoute from "./components/privateRoutes/PrivateRoute";
+import ShipList from "./a-pages/ShipList";
 
 const App = () => {
    
@@ -16,7 +17,7 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path='/' element={<Welcome />} />
-        <Route path='/ShipList' element={<ShipList />} />
+        <PrivateRoute path='/ShipList' element={<ShipList />} />
         <Route path='/shipinfo/:id' element={<ShipInfo />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>

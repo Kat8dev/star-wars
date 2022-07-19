@@ -8,7 +8,7 @@ import { UserContext } from "../components/UserContext";
 const ShipList = () => {
 	const [ships, setShips] = useState([]);
 	const [page, setPage] = useState(1);
-  const { loged } = useContext(UserContext);
+	const { loged } = useContext(UserContext);
 
 	useEffect(() => {
 		axios.get(`https://swapi.dev/api/starships/?page=${page}`).then((res) => {
@@ -19,7 +19,7 @@ const ShipList = () => {
 
 	return (
 		<>
-    { ships.length > 0 ? (
+			{ships.length > 0 ? (
 				<div>
 					<InfiniteScroll
 						dataLength={ships.length}
