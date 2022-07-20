@@ -6,9 +6,14 @@ const LoginModal = ({ open, onClose }) => {
     const [ user, setUser ] = useState({
         email: "",
         password: "",
+        isLoged: false, 
     });
 
-    const { loged, setLoged } = useContext(UserContext);
+   const { setLoged } = useContext(UserContext);
+   if(user.isLoged) return setLoged(true); 
+   
+   
+
 
     const HandleOnChange = (event) => {
         setUser(prev => {
@@ -19,23 +24,27 @@ const LoginModal = ({ open, onClose }) => {
         })
     }
 
-
     const HandleOnSubmit = () => {
+
        
         const getfromstorage = localStorage.getItem("user");
         const parsedUser = JSON.parse(getfromstorage);
 
         const found = parsedUser.find(item => item.email === user.email);
 
-        if(found !== undefined && found.password === user.password) {   
-            setLoged(true); 
-            console.log(loged)     
+        if(found !== undefined && found.password === user.password) {       
+            setUser(prev => {
+                return {
+                    ...prev,
+                    isLoged: !user.isLoged 
+                }
+            })
             alert(`Welcome ${found.firstName}!`);
         }else {
             alert("please sign up!");
         }
     }
-
+   
     return (
         <>
             {

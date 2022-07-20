@@ -5,19 +5,21 @@ import ErrorPage from './components/ErrorPage';
 import NavBar from "./components/NavBar";
 import { UserContext } from "./components/UserContext";
 import { useState } from "react";
-import PrivateRoute from "./components/privateRoutes/PrivateRoute";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 import ShipList from "./a-pages/ShipList";
 
 const App = () => {
-   
+
   const [loged, setLoged] = useState(false);
 
   return (
-    <UserContext.Provider value={{loged, setLoged}}>
+    <UserContext.Provider value={ { loged, setLoged } }>
       <NavBar />
       <Routes>
         <Route path='/' element={<Welcome />} />
-        <PrivateRoute path='/ShipList' element={<ShipList />} />
+        <Route element={<ProtectedRoutes/>}>
+          <Route path='/ShipList' element={<ShipList />} />
+        </Route>
         <Route path='/shipinfo/:id' element={<ShipInfo />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
