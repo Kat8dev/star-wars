@@ -1,6 +1,6 @@
 import { OVERLAY_STYLES } from "../styled/styled";
 import { useState, useContext } from "react";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../hooks/UserContext";
 
 const LoginModal = ({ open, onClose }) => {
     const [ user, setUser ] = useState({
@@ -9,13 +9,12 @@ const LoginModal = ({ open, onClose }) => {
         isLoged: false, 
     });
 
+    /* I don't get why I can't change value of useContext inside conditional of HandleOnSubmit func; */
    const { setLoged } = useContext(UserContext);
    if(user.isLoged) return setLoged(true); 
    
-   
 
-
-    const HandleOnChange = (event) => {
+   const HandleOnChange = (event) => {
         setUser(prev => {
             return {
                 ...prev,
@@ -25,7 +24,6 @@ const LoginModal = ({ open, onClose }) => {
     }
 
     const HandleOnSubmit = () => {
-
        
         const getfromstorage = localStorage.getItem("user");
         const parsedUser = JSON.parse(getfromstorage);
@@ -80,3 +78,4 @@ const LoginModal = ({ open, onClose }) => {
 }
 
 export default LoginModal;
+

@@ -3,10 +3,11 @@ import ShipInfo from './components/ShipInfo';
 import Welcome from './a-pages/Welcome'
 import ErrorPage from './components/ErrorPage';
 import NavBar from "./components/NavBar";
-import { UserContext } from "./components/UserContext";
+import { UserContext } from "./hooks/UserContext";
 import { useState } from "react";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import ShipList from "./a-pages/ShipList";
+import PleaseLogin from "./components/PleaseLogin";
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/ShipList' element={<ShipList />} />
         </Route>
         <Route path='/shipinfo/:id' element={<ShipInfo />} />
+        <Route path="pleaseLogin" element={<PleaseLogin/>} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </UserContext.Provider>
