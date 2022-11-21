@@ -50,7 +50,6 @@ export const OVERLAY_STYLES = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, .7);  
     .MODAL_STYLES {
@@ -60,7 +59,7 @@ export const OVERLAY_STYLES = styled.div`
         transform: translate(-50%, -50%);
         background-color: #181818;
         border: solid 3px black;
-        max-width: 540px;
+        max-width: 25rem;
         padding: 20px;
         button {
             position: fixed;
@@ -80,18 +79,23 @@ export const OVERLAY_STYLES = styled.div`
             color: #edd700;
             }
         }    
+
+        img {
+            width: 100%;
+            height: auto;
+        }
         
         .form {
-            input{
-                margin: 15px;
-                padding: 12px;
-                width: 400px;
+            display: flex;
+            flex-direction: column;
+            span {
+                color: white;
             }
             .submit {
                 background-color: #484848;
                 border: none;
                 border-radius: 3px;
-                width: 430px;
+                padding: 10px;
                 font-size: 18px;
                 font-weight: bold;
                 color: white;
@@ -101,6 +105,26 @@ export const OVERLAY_STYLES = styled.div`
             }
         }
     }
+`
+// inputs style
+export const Inputs_wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    input {
+        padding: 10px;
+        margin: 10px 0;
+        &:invalid[focused="true"] {
+            border: 1px solid red;
+        }
+        &:invalid[focused="true"] ~ span {
+            display: block;
+        }
+    }
+    span {
+        font-size: 12px;
+        padding: 3px;
+        display: none;
+    }  
 `
 
 // exported to components/LogIn 
@@ -163,23 +187,34 @@ export const EXTERNAL_LINKS = styled.div`
 
 // exported to components/NavBar 
 export const NAV_CONTAINER = styled.div`
-    width: 100%;
+    width: 100vw;
     height: auto;
-    top: 0;
      .UPPER_BAR_WRAPPER {
-        max-width: 1400px;
-        max-height: 134px;
-        margin: 0 auto;
+        position: relative;
         padding: 20px 0;
-        box-sizing: border-box;
         display: flex;
         justify-content: space-between;
      }
     .LOGO {
-        width: 220px;
+        width: 13rem;
            img {
-             width: 220px;     
+            width: 100%;
+            height: auto;  
+            min-width: 5rem   
            }
+    }
+    .hamburger  {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 1rem;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: 0.5s ease;
+        display: none;
+        &:hover {
+            opacity: 0.5;
+        }
     }
     .LINK_BAR {
         height: 51px;
@@ -188,6 +223,20 @@ export const NAV_CONTAINER = styled.div`
         margin-bottom: 20px;
         display: flex;
         justify-content: center;
+    }
+    @media(max-width: 900px) {
+        .external_links {
+            display: none;
+        }
+        .login_signup {
+            display: none;
+        }
+        .UPPER_BAR_WRAPPER {
+            justify-content: center;
+        }
+        .hamburger {
+            display: block;
+        }
     }
 `
 

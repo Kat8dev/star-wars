@@ -1,6 +1,7 @@
-import { OVERLAY_STYLES } from "../styled/styled";
+import { OVERLAY_STYLES } from "../../styled/styled";
 import { useState, useContext } from "react";
-import { UserContext } from "../hooks/UserContext";
+import { UserContext } from "../../hooks/UserContext";
+import Inputs from "./Inputs";
 
 const LoginModal = ({ open, onClose }) => {
     const [ user, setUser ] = useState({
@@ -9,12 +10,31 @@ const LoginModal = ({ open, onClose }) => {
         isLoged: false, 
     });
 
-    /* I don't get why I can't change value of useContext inside conditional of HandleOnSubmit func; */
    const { setLoged } = useContext(UserContext);
    if(user.isLoged) return setLoged(true); 
+
+   const inputsData = [
+    {
+        id: 1,
+        name: "email",
+        type: "email",
+        placeholder: "Email",
+        errorMessage: "It should be a valid email address!",
+        required: true,
+    },
+    {
+        id: 2,
+        name: "password",
+        type: "password",
+        placeholder: "Password",
+        errorMessage: "Password should be 8-20 character and include at least 1 letter, 1 number and 1 special character",
+        pattern: "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$",
+        required: true,
+    },
+];
    
 
-   const HandleOnChange = (event) => {
+   const handleOnChange = (event) => {
         setUser(prev => {
             return {
                 ...prev,
@@ -56,18 +76,11 @@ const LoginModal = ({ open, onClose }) => {
                             <h3>LOG IN</h3>
                         </div>
                         <form className="form" action="#" onSubmit={HandleOnSubmit}>
-                            <input type="email"
-                                placeholder="Email Address"
-                                name="email"
-                                value={user.email}
-                                onChange={HandleOnChange}
-                            /><br />
-                            <input type="password"
-                                placeholder="Password"
-                                name="password"
-                                value={user.password}
-                                onChange={HandleOnChange}
-                            /><br />
+                            {
+                                inputsData.map(input => (
+                                    <Inputs key={input.id} {...input} value={user[input.name]} onChange={handleOnChange} />
+                                ))
+                            }
                             <input className="submit" type="submit" value="Log In" />
                         </form>
                     </div>

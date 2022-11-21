@@ -1,4 +1,4 @@
-import { USER_DIV } from "../styled/styled";
+import { USER_DIV } from "../../styled/styled";
 import { useState } from "react";
 import LoginModal from "./LoginModal";
 import SignupModal from "./SignupModal";

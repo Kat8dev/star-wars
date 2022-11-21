@@ -1,21 +1,33 @@
 import { NavLink } from "react-router-dom";
 import { NAV_CONTAINER } from "../styled/styled";
 import NavBarExternalLinks from "./NavBarExternalLinks";
-import LoginSignup from "./LoginSignup";
+import LoginSignup from "./register/LoginSignup";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 
 const NavBar = () => {
 
+    const handleClick = () => {
+        
+    }
+
     return (
         <NAV_CONTAINER>
             <div className="UPPER_BAR_WRAPPER">
-                <NavBarExternalLinks />
+                <div className="external_links">
+                    <NavBarExternalLinks />
+                </div>
                 <div className="LOGO">
                     <img
-                     src={"https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_stacked-336c62367939.png"}
-                     alt={"LOGO"}/>
+                        src={"https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_stacked-336c62367939.png"}
+                        alt="LOGO" />
                 </div>
-                <LoginSignup />
+                <div className="login_signup">
+                    <LoginSignup />
+                </div>
+                <div className="hamburger" onClick={handleClick}>
+                    <GiHamburgerMenu />
+                </div>
             </div>
             <div className="LINK_BAR">
                 <NavLink to="/"
