@@ -190,13 +190,13 @@ export const NAV_CONTAINER = styled.div`
     width: 100vw;
     height: auto;
      .UPPER_BAR_WRAPPER {
-        position: relative;
         padding: 20px 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        position: relative;
      }
     .LOGO {
-        width: 13rem;
+           width: 13rem;
            img {
             width: 100%;
             height: auto;  
@@ -211,10 +211,19 @@ export const NAV_CONTAINER = styled.div`
         font-size: 1.8rem;
         cursor: pointer;
         transition: 0.5s ease;
-        display: none;
+        display: block;
         &:hover {
             opacity: 0.5;
         }
+    }
+    .external_links {
+        display: none;
+    }
+    .login_signup {
+        display: none;
+    }
+    .login_signup.mobile {
+        display: block;
     }
     .LINK_BAR {
         height: 51px;
@@ -224,18 +233,25 @@ export const NAV_CONTAINER = styled.div`
         display: flex;
         justify-content: center;
     }
-    @media(max-width: 900px) {
+    @media(min-width: 900px) {
         .external_links {
-            display: none;
+            display: block;
         }
         .login_signup {
+            display: block;
+        }
+        .hamburger  {
             display: none;
         }
         .UPPER_BAR_WRAPPER {
-            justify-content: center;
+            justify-content: space-between;
         }
-        .hamburger {
-            display: block;
+    }
+    @media(max-width: 900px) {
+        .login_signup.mobile {
+            position: absolute;
+            background-color: white;
+            padding: 7rem;
         }
     }
 `
@@ -294,4 +310,8 @@ export const FILMS_WRAPPER = styled.div`
         margin: 10px 45px;
         border-right: 2px solid #181818;
     }
+`
+
+export const welcome_wrapper = styled.main`
+    width: 100vw;
 `
