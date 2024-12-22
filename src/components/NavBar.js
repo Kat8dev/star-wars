@@ -3,7 +3,7 @@ import { NAV_CONTAINER } from "../styled/styled";
 import NavBarExternalLinks from "./NavBarExternalLinks";
 import LoginSignup from "./register/LoginSignup";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 
 const NavBar = () => {
@@ -12,6 +12,8 @@ const NavBar = () => {
     const handleClick = () => {
         setIsNavExpanded(!isNavExpanded)
     }
+
+    const clickOutside = useRef();
 
     return (
         <NAV_CONTAINER>
@@ -24,7 +26,7 @@ const NavBar = () => {
                         src={"https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_stacked-336c62367939.png"}
                         alt="LOGO" />
                 </div>
-                <div className={isNavExpanded? "login_signup" :  "login_signup mobile"}>
+                <div ref={clickOutside} className={isNavExpanded? "login_signup" :  "login_signup mobile"}>
                     <LoginSignup />
                 </div>
                 <div className="hamburger" onClick={handleClick}>

@@ -250,7 +250,9 @@ export const NAV_CONTAINER = styled.div`
     @media(max-width: 900px) {
         .login_signup.mobile {
             position: absolute;
-            background-color: white;
+            top: 18%;
+            right: 10%;
+            background-color: black;
             padding: 7rem;
         }
     }

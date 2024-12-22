@@ -9,7 +9,7 @@ const ShipList = () => {
 	const [page, setPage] = useState(1);
 
 	useEffect(() => {
-		axios.get(`https://swapi.dev/api/starships/?page=${page}`).then((res) => {
+		axios.get(`https://www.swapi.tech/api/starships?page=${page}`).then((res) => {
 			setShips((prev) => prev.concat(res.data.results));
 		});
 	}, [page]);

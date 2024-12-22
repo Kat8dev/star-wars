@@ -17,16 +17,16 @@ export default function ShipInfo() {
    
 
     useEffect(() => {
-        axios.get("https://swapi.dev/api/starships/" + id).then(res => {
-            setData(res.data);
+        axios.get("https://www.swapi.tech/api/starships/" + id).then(res => {
+            setData(res.data.result.properties);
         });
     }, [id]);
-    console.log(data.films)
+
     return (
         <INFO_DIV>
             <div className="photo_div">
                 { /* some images aren't available */}
-                <img src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`} alt={"star ship"} />
+                <img src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`} alt={"star ship"} /> 
                 <h2>{data.name}</h2>
             </div>
 
